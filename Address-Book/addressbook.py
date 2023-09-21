@@ -20,6 +20,8 @@ Number = StringVar()
 
 def create_connection(db_file):
     conn = None
+    if (db_file == ""):
+        return conn
     try:
         conn = sqlite3.connect(db_file)
         r_set = conn.execute('''SELECT * from tasks''')
